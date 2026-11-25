@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUERLAIN PARIS — Vétiver Fauve | Interactive Scroll Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader" class="preloader" aria-live="polite">
+    <div class="preloader-inner">
+      <p class="preloader-kicker">L’ART &amp; LA MATIÈRE</p>
+      <h1 class="preloader-brand">GUERLAIN</h1>
+      <p class="preloader-sub">PARIS</p>
+      <div class="preloader-bar-track">
+        <div id="preloader-bar" class="preloader-bar-fill"></div>
+      </div>
+      <p id="preloader-status" class="preloader-status">Loading sequence · 0%</p>
+    </div>
+  </div>
+
+  <!-- Fixed Minimal Top Bar -->
+  <header class="site-header">
+    <a href="#stage" class="brand-mark" aria-label="Guerlain Paris Home">
+      <span class="brand-title">GUERLAIN</span>
+      <span class="brand-city">PARIS</span>
+    </a>
+
+    <nav class="chapter-nav" aria-label="Story chapters">
+      <button class="nav-pill" data-target="0.04">01 Canopy</button>
+      <button class="nav-pill" data-target="0.21">02 Instinct</button>
+      <button class="nav-pill" data-target="0.38">03 Botanicals</button>
+      <button class="nav-pill" data-target="0.56">04 Flacon</button>
+      <button class="nav-pill" data-target="0.76">05 Clearing</button>
+      <button class="nav-pill" data-target="0.96">06 Reveal</button>
+    </nav>
+
+    <div class="header-actions">
+      <button id="fit-toggle" class="icon-btn" title="Toggle Cinema Fit / Full Bleed" aria-pressed="false">
+        <span class="btn-dot"></span>
+        <span id="fit-label">Cinema Fit</span>
+      </button>
+      <button id="autoplay-toggle" class="icon-btn icon-btn--gold" title="Auto-play scroll journey" aria-pressed="false">
+        <span id="autoplay-icon">▶</span>
+        <span id="autoplay-label">Auto Scroll</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Right Vertical Progress Rail -->
+  <aside class="progress-rail" aria-label="Scroll progress">
+    <div class="rail-track">
+      <div id="rail-fill" class="rail-fill"></div>
+    </div>
+    <div class="rail-dots" id="rail-dots">
+      <button class="rail-dot" data-target="0.04" data-label="Canopy"></button>
+      <button class="rail-dot" data-target="0.21" data-label="Instinct"></button>
+      <button class="rail-dot" data-target="0.38" data-label="Botanicals"></button>
+      <button class="rail-dot" data-target="0.56" data-label="Flacon"></button>
+      <button class="rail-dot" data-target="0.76" data-label="Clearing"></button>
+      <button class="rail-dot" data-target="0.96" data-label="Vétiver Fauve"></button>
+    </div>
+  </aside>
+
+  <!-- Main Scroll Animation Stage -->
+  <main>
+    <section id="stage" class="scroll-stage" aria-label="Vétiver Fauve scroll animation">
+      <div class="sticky-viewport">
+        <!-- Ambient glow backdrop & main HTML5 Canvas -->
+        <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+        <canvas id="hero-canvas" class="hero-canvas"></canvas>
+        <div class="vignette-overlay" aria-hidden="true"></div>
+
+        <!-- Synchronized Story Beat Overlays -->
+        <div class="story-layer">
+          <article class="story-beat" data-start="0.00" data-end="0.14" data-align="bottom-left">
+            <span class="beat-eyebrow">01 · L’ART &amp; LA MATIÈRE</span>
+            <h2 class="beat-title">Into the Untamed Canopy</h2>
+            <p class="beat-copy">Dawn breaks over mist-veiled rainforest rivers, awakening an untamed green pulse.</p>
+          </article>
+
+          <article class="story-beat" data-start="0.15" data-end="0.29" data-align="bottom-left">
+            <span class="beat-eyebrow">02 · PRIMAL INSTINCT</span>
+            <h2 class="beat-title">Fierce Gaze in the Shadows</h2>
+            <p class="beat-copy">A wild intensity stirs beneath the foliage—magnetic, feline, and effortlessly refined.</p>
+          </article>
+
+          <article class="story-beat" data-start="0.30" data-end="0.46" data-align="bottom-right">
+            <span class="beat-eyebrow">03 · RAIN-DRENCHED FLORA</span>
+            <h2 class="beat-title">Crimson Dew &amp; Vibrant Roots</h2>
+            <p class="beat-copy">Water beads across scarlet petals as raw botanical energy converges into emerald elixir.</p>
+          </article>
+
+          <article class="story-beat" data-start="0.47" data-end="0.65" data-align="bottom-left">
+            <span class="beat-eyebrow">04 · ARCHITECTURAL GLASS</span>
+            <h2 class="beat-title">Sculpted with the Guerlain Bee</h2>
+            <p class="beat-copy">Faceted crystal catches filtered jungle light, revealing the luminous heart of Vétiver Fauve.</p>
+          </article>
+
+          <article class="story-beat" data-start="0.66" data-end="0.84" data-align="bottom-right">
+            <span class="beat-eyebrow">05 · THE GREEN CLEARING</span>
+            <h2 class="beat-title">Earthy Vetiver, Unbridled Grace</h2>
+            <p class="beat-copy">Smoky Haitian vetiver intertwines with lush tropical fig and warm, resinous woods.</p>
+          </article>
+
+          <article class="story-beat story-beat--compact" data-start="0.87" data-end="1.00" data-align="bottom-center">
+            <a href="#olfactory" class="discover-pill">
+              <span>Explore Olfactory Notes</span>
+              <span class="arrow">↓</span>
+            </a>
+          </article>
+        </div>
+
+        <!-- Bottom HUD: Scroll Prompt & Frame Telemetry -->
+        <div class="hud-bar">
+          <div id="scroll-cue" class="scroll-cue">
+            <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+            <span>Scroll to animate</span>
+          </div>
+
+          <div class="telemetry">
+            <span id="frame-counter" class="telemetry-value">FRAME 001 / 297</span>
+            <span class="telemetry-sep">·</span>
+            <span id="percent-counter" class="telemetry-value">0%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Olfactory & Craftsmanship Section -->
+    <section id="olfactory" class="details-section">
+      <div class="details-container">
+        <header class="section-header">
+          <p class="section-eyebrow">THE NEW EAU DE PARFUM</p>
+          <h2 class="section-heading">Vétiver Fauve</h2>
+          <p class="section-lead">
+            A chiaroscuro composition from Guerlain’s Haute Parfumerie collection—balancing crisp tropical vitality with deep, sun-warmed roots.
+          </p>
+        </header>
+
+        <div class="notes-grid" role="list">
+          <article class="note-card" role="listitem">
+            <span class="note-tier">TOP ACCORD</span>
+            <h3>Green Fig &amp; Crushed Leaves</h3>
+            <p>Dew-kissed botanical freshness that evokes the first sunlight piercing a rainforest canopy.</p>
+          </article>
+
+          <article class="note-card note-card--featured" role="listitem">
+            <span class="note-tier">SIGNATURE HEART</span>
+            <h3>Haitian Vetiver &amp; Cypriol</h3>
+            <p>Vibrant, woody, and mineral-rich roots layered with smoky cypriol for unmistakable magnetic depth.</p>
+          </article>
+
+          <article class="note-card" role="listitem">
+            <span class="note-tier">BASE TRAIL</span>
+            <h3>Tonka Bean &amp; Wild Woods</h3>
+            <p>Velvety warmth and resinous amber undertones that linger smoothly on skin long after dusk.</p>
+          </article>
+        </div>
+
+        <div class="flacon-showcase">
+          <div class="flacon-visual">
+            <img src="frames/ezgif-frame-290.jpg" alt="Guerlain Paris Vétiver Fauve Eau de Parfum bottle in lush jungle setting" loading="lazy" />
+          </div>
+          <div class="flacon-info">
+            <span class="section-eyebrow">L’ART &amp; LA MATIÈRE</span>
+            <h3>The Iconic Octagonal Flacon</h3>
+            <p>
+              Inspired by Guerlain’s historic 1870 Square Bottle, crafted from heavy beveled glass and crowned with a sleek black cap. Designed to be refilled and cherished endlessly.
+            </p>
+            <div class="size-selector" role="group" aria-label="Flacon size">
+              <button class="size-btn is-selected" data-size="100 mL" data-note="Signature Spray · Refillable">100 mL</button>
+              <button class="size-btn" data-size="200 mL" data-note="Collector Edition · Refillable">200 mL</button>
+            </div>
+            <p id="size-caption" class="size-caption">100 mL · Signature Spray · Refillable</p>
+
+            <div class="flacon-actions">
+              <button id="replay-btn" class="cta-btn">↺ Replay Scroll Film</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>GUERLAIN PARIS · VÉTIVER FAUVE — Scroll Sequence Showcase (297 Frames)</p>
+    <p class="footer-credit">Created by Aditya Devraj Pathak from Jabalpur</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
